@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/css/master.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/master.css') }}">
 </head>
 
 <body>
@@ -22,7 +23,7 @@
                 <div class="row h-100">
                     <div class="col-md-7 bg-image  d-flex flex-column justify-content-center">
                         <div class="text-white px-3 py-md-0 py-4">
-                            <h2 class="fa-3x">Welcome to website</h2>
+                            <h2 class="fa-3x">Welcome to Al-Akhirah Project</h2>
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, consequatur iusto!
                                 Deleniti obcaecati error ab dolore id aspernatur enim aliquam libero ullam atque?
                                 Blanditiis </p>
@@ -30,37 +31,38 @@
                     </div>
                     <div class="col-md-5 d-flex flex-column justify-content-center">
                         <div class="py-md-0 py-4">
-                            <form action="post">
+                            <form method="post" action="{{ url_for('login') }}">
                                 <h2 class="text-uppercase mb-4 text-center">user login</h2>
                                 <div class="col-auto mb-3">
                                     <label class="visually-hidden" for="mailInput">Email or Number Phone</label>
                                     <div class="input-group">
                                         <div class="input-group-text"><i class="fa-solid fa-user"></i></div>
-                                        <input type="email" class="form-control" id="mailInput"
-                                            placeholder="Email or Number Phone">
+                                        <input type="email" class="form-control" id="mailInput" name="mailInput"
+                                            placeholder="Email" required>
                                     </div>
                                 </div>
                                 <div class="col-auto mb-3">
                                     <label class="visually-hidden" for="passInput">Password</label>
                                     <div class="input-group">
                                         <div class="input-group-text"><i class="fa-solid fa-lock"></i></div>
-                                        <input type="password" class="form-control" id="passInput"
-                                            placeholder="Password">
+                                        <input type="password" class="form-control" id="passInput" name="passInput"
+                                            placeholder="Password" required>
                                     </div>
                                 </div>
                                 <div class="checkbox-wrapper-15 ms-1">
-                                    <input class="inp-cbx" id="cbx-15" type="checkbox" style="display: none;"/>
+                                    <input class="inp-cbx" id="cbx-15" type="checkbox" style="display: none;" />
                                     <label class="cbx" for="cbx-15">
-                                      <span>
-                                        <svg width="12px" height="9px" viewbox="0 0 12 9">
-                                          <polyline points="1 5 4 8 11 1"></polyline>
-                                        </svg>
-                                      </span>
-                                      <span>Remember Me</span>
+                                        <span>
+                                            <svg width="12px" height="9px" viewbox="0 0 12 9">
+                                                <polyline points="1 5 4 8 11 1"></polyline>
+                                            </svg>
+                                        </span>
+                                        <span>Remember Me</span>
                                     </label>
                                 </div>
-                                <button class="text-uppercase d-flex mt-5 border-0 px-4 py-2 mx-auto text-white fw-medium rounded-5">login</button>
-                                  
+                                <button
+                                    class="text-uppercase d-flex mt-5 border-0 px-4 py-2 mx-auto text-white fw-medium rounded-5">login</button>
+
                             </form>
                         </div>
                     </div>
@@ -72,8 +74,8 @@
 
 
 
-    <script src="static/js/bootstrap.min.js"></script>
-    <script src="static/js/main.js"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 
 </html>
