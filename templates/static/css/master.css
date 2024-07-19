@@ -95,7 +95,7 @@ body {
     border-bottom-left-radius: 0.5rem;
     border-top-left-radius: 0.5rem;
 }
-.input-group-text ,.input-group>.form-control{
+.input-group-text ,.input-group>.form-control,form input{
     background: #ece8ff;
 }
 form h2{
@@ -110,13 +110,16 @@ form i{
   border-color: #8d75ff4a;
   box-shadow: 0 0 0 0.25rem rgb(13 45 253 / 0%);
 }
-form button{
+form button,input[type="submit"]{
   background-image: linear-gradient(90deg,#6a48ff,rgb(131 39 224));
   transition: 0.5s;
 }
-form button:hover{
+form button:hover,input[type="submit"]:hover{
   background-image: linear-gradient(90deg,rgb(131 39 224),#6a48ff);
 }
-form button:active{
+form button:active,input[type="submit"]:active{
   transform: translateY(5px);
+}
+.error{
+  display: none;
 }
