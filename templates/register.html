@@ -1,16 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/master.css">
+
 </head>
+
 <body>
-  <form action="{{ url_for('register') }}" method="post">
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="email" name="email" placeholder="email@gmail.com" required>
-    <input type="password" name="passwd" placeholder="Password" required>
-    <input type="submit" value="Register">
-  </form>
+
+
+    <main>
+        <section class="register d-flex justify-content-center align-items-center vh-100 py-5">
+            <div class="container shadow rounded-3 h-75 bg-white overflow-auto">
+                <div class="row h-100">
+                    <div class="col-md-5 d-flex flex-column justify-content-center">
+                        <div class="py-md-0 py-4">
+                            <form action="{{ url_for('register') }}" method="post">
+                                <h2 class="text-uppercase mb-4 text-center">User Register</h2>
+                            
+                                <input type="text" name="name" placeholder="Name" required class="nameInput form-control mb-3">
+                                
+                            
+                                <input type="email" name="email" placeholder="email@gmail.com" required class="form-control mb-3 mailInput">
+                                
+                            
+                                <input type="password" name="passwd" placeholder="Password" required class="form-control mb-3 passInput">
+                                
+                            
+                                <input type="submit" value="Register" class="text-uppercase d-flex mt-5 border-0 px-4 py-2 mx-auto text-white fw-medium rounded-5">
+                            </form>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-7 bg-image rounded-0  d-flex flex-column justify-content-center">
+                        <div class="text-white px-3 py-md-0 py-4">
+                            <h2 class="fa-3x">Welcome to <br />Al-Akhirah Project</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, consequatur iusto!
+                                Deleniti obcaecati error ab dolore id aspernatur enim aliquam libero ullam atque?
+                                Blanditiis </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/main.js"></script>
 </body>
+
 </html>
