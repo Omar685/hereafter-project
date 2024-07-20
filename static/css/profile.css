@@ -1,0 +1,168 @@
+body{
+    background: #f4f5f7;
+}
+nav .icon i {
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+}
+
+.logo {
+    width: 100px;
+}
+
+aside {
+    width: 150px;
+    display: flex;
+}
+
+aside li i {
+    transition: 0.4s;
+    width: 25px;
+    height: 25px;
+    color: #494949;
+}
+
+aside li {
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+aside li.active,aside li:hover {
+    background: #6554f2;
+}
+
+aside li i.active ,aside li:hover i{
+    color: #fff;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+.cover-image {
+    background-image: url("../images/one.jpg");
+    width: 100%;
+    height: 30vh;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.profile-image img{
+    width: 100px;
+    height: 100px;
+}
+.profile-image{
+    bottom: -50px;
+    left: 25px;
+}
+.info .btn:last-child,.post .btn{
+    background-color: #6554f2;
+    color: #fff;
+}
+.info .btn:last-child:hover,.post .btn:hover{
+    background-color: #4a38e4;
+}
+.info .btn:first-child{
+    background-color: #ffffff;
+    color: #494949;
+    border: 1px solid #494949;
+}
+.info .btn:first-child:hover{
+    background-color: #fafafa;
+}
+.info .box-end{
+    text-align: end;
+}
+
+@media (max-width:780px) {
+    aside {
+        display: block;
+        width: 100%;
+    }
+
+    aside ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    aside ul li{
+        padding: 0!important;
+    }
+    aside ul li i{
+        display: flex!important;
+        align-items: center;
+        justify-content: center;
+        width: 37px;
+        height: 37px;
+    }
+    .info .box-end{
+        text-align: start;
+    }
+}
+.post textarea{
+    width: 97%;
+}
+.form-control:focus {
+    border-color: #6554f27a;
+    box-shadow: 0 0 0 0.25rem rgb(101 84 242 / 26%);
+}
+.post .post-control i {
+    width: 47px;
+    height: 47px;
+}
+.post .heading .image img{
+    width: 50px;
+    height: 50px;
+}
+.post .heading p{
+    color: #494949;
+    font-size: 16px;
+}
+.reaction{
+    border-top: 2px solid #e9e9e9;
+    border-bottom: 2px solid #e9e9e9;
+}
+.reaction div{
+    cursor: pointer;
+    font-size: 17px;
+    color: #494949;
+}
+.heart i{
+    color: gray;
+    transition: color 0.3s;
+  }
+.heart i.active {
+    color: rgb(250, 45, 26);
+}
+.top{
+    background-color: #6554f2;
+    color: #fff;
+    cursor: pointer;
+    right: 15px;
+    bottom: 15px;
+    display: none;
+}
+.top div{
+    width: 45px;
+    height: 45px;
+}
+
+::-webkit-scrollbar {
+    width: 12px; 
+    height: 12px; 
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #6554f2; 
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover{
+    background: #4a38e4; 
+  }
