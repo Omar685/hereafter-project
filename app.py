@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, make_response, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_wtf.csrf import CSRFProtect
-from models import (SQLite3Executor, MariaDBExecutor)
+from models import (SQLite3Executor, MySQLExecutor)
 from random_generator import generator_random_string
 import pymysql
 
@@ -10,7 +10,7 @@ import os
 app = Flask(__name__)
 app.secret_key = open("secret.key", 'r').read()
 
-executor = MariaDBExecutor("localhost", "root", "123456789mM.", "alakhrah")
+executor = MySQLExecutor("localhost", "root", "123456789987654321mM.", "akhirah", port=9500)
 executor.connect()
 
 
@@ -22,11 +22,12 @@ def login():
  
     user = executor.fetchone(f"SELECT * FROM users WHERE email='{email}' AND password='{password}';")
     if user:
-      print(f"ID: '{user[0]}' - Name: '{user[1]}' - Email: '{user[2]}' Password: '{user[3]}'")
+      print(f"ID: '{user[0]}' - Name: '{user[1]}' Username: '{user[2]}' - Email: '{user[3]}' - Password: '{user[4]}' - Logo path: '{user[5]} - Age: '{user[6]} - Location: '{user[7]}")
       session['email'] = user[3]
       session['password'] = user[4]
+      # Set cookies and redirect to index
       resp = make_response(redirect(url_for("index")))
-      resp.set_cookie("email", email, max_age=60*60*24*30, secure=True)
+      resp.set_cookie("email", email, max_age=60*60*24*30)
       resp.set_cookie("password", password, max_age=60*60*24*30)
       return resp
     
@@ -59,7 +60,7 @@ def register():
         try:
           executor.execute(f"INSERT INTO users(name, username, email, password) VALUES('{name}', '{username}', '{email}', '{password}')")
           flash("Registration seccessful", 'success')
-          os.mkdir(os.path.join("static/users/") + username)
+          os.mkdir(os.path.join("data/users/") + username)
           return redirect(url_for("login"))
         
         except pymysql.IntegrityError:
@@ -69,15 +70,26 @@ def register():
 
 @app.route("/")
 def index():
-  if 'email' in session:
-    return f"Welcome {session['email']}"
+  user = request.cookies.get("email")
+  if user:
+    return f"Welcome {user}"
   else:
     return redirect(url_for('login'))
 
 @app.route("/profile")
 def profile():
-  if 'email' in session:
-    return f"Welcome {session['email']}"
+  # return f"ID: '{user[0]}' - Name: '{user[1]}' Username: '{user[2]}' - Email: '{user[3]}' - Password: '{user[4]}' - Logo path: '{user[5]} - Age: '{user[6]} - Location: '{user[7]}"
+  email = request.cookies.get("email")
+  password = request.cookies.get("password")
+  user =  executor.fetchone(f"SELECT * FROM users WHERE email='{email}' AND password='{password}';")
+  
+  # name=user[1]
+  # followers=user[8]
+  # following=user[9]
+  
+  if user:
+    return "Profile"
+    # return render_template("profile.html")
   else:
     return redirect(url_for('login'))
 

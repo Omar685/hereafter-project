@@ -1,10 +1,10 @@
 # try:
-#   import MySQLdb
+#   import pymysql
 # except ImportError:
 import pymysql
 import sqlite3
 
-"""
+
 class MySQLExecutor:
   def __init__(self, host, user, password, db_name, port):
     self.host = host
@@ -18,7 +18,7 @@ class MySQLExecutor:
   
   def connect(self):
     try:
-      self.connection = MySQLdb.connect(
+      self.connection = pymysql.connect(
         host=self.host,
         user=self.user,
         passwd=self.password,
@@ -27,7 +27,7 @@ class MySQLExecutor:
       )
       self.cursor = self.connection.cursor()
       print("Connection seccessful!")
-    except MySQLdb.Error as e:
+    except pymysql.Error as e:
       print(f"Error connecting to MySQL: {e}")
       print(f" or MySQL not exists")
 
@@ -41,10 +41,36 @@ class MySQLExecutor:
       self.connection.commit()
       print("SQL execute successfuly!")
       return self.cursor.fetchall()
-    except MySQLdb.Error as e:
+    except pymysql.Error as e:
       print(f"Error executing SQL: {e}")
       # self.connection.rollback()
       return None
+
+  def fetch_query(self, query, params=None):
+    """Fetch results from a query"""
+    with self.connection.cursor() as cursor:
+      try:
+        if params:
+          cursor.execute(query, params)
+        else:
+          cursor.execute(query)
+        result = cursor.fetchall()
+        return result
+      except pymysql.MySQLError as e:
+        print(f"Error: '{e}'")
+  
+  def fetchone(self, query, params=None):
+    """Fetchone results from a query"""
+    with self.connection.cursor() as cursor:
+      try:
+        if params:
+          cursor.execute(query, params)
+        else:
+          cursor.execute(query)
+        result = cursor.fetchone()
+        return result
+      except pymysql.MySQLError as e:
+        print(f"Error: '{e}'")
     
   def close(self):
     if self.cursor:
@@ -52,7 +78,7 @@ class MySQLExecutor:
     if self.connection:
       self.connection.close()
       print("Connection closed.")
-"""
+
 class SQLite3Executor:
   def __init__(self, db_name) -> None:
     self.db_name = db_name
