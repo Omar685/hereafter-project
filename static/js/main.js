@@ -25,6 +25,7 @@ $(document).ready(function () {
         $("main").css({ "marginTop": navHeight * 2 + "px", "marginLeft": "0" });
         $("aside").removeClass("vh-100");
         $(".show .close").css("top", navHeight * 2 + "px");
+        $(".body-comment").addClass("z-3");
 
       } else {
         $(".show .close").css("top", navHeight + "px");
@@ -64,16 +65,18 @@ $(".heart").on("click", function () {
 });
 
 
-$(".cover-image img").on("click", function () {
+$(".cover-image img,.post .image-post img").on("click", function () {
   let imgSrc = $(this).attr("src");
   $(".show img").attr("src", imgSrc)
-  $(".show").fadeIn(500).addClass("d-flex")
+  $(".profile .show").fadeIn(500).addClass("d-flex")
 });
 
 
-$(".show .close").on("click", function () {
-  $(".show").fadeOut(500, function () {
-    $(".show").removeClass("d-flex")
+
+
+$(".profile .show .close").on("click", function () {
+  $(".profile .show").fadeOut(500, function () {
+    $(".profile .show").removeClass("d-flex")
   })
 })
 
@@ -82,12 +85,12 @@ $(".show-more p").hover(
   function () {
     $(this).addClass("text-primary-emphasis");
   },
-  function() {
+  function () {
     $(this).removeClass("text-primary-emphasis");
   }
 );
 
-$(".show-more p").on("click", function(){
+$(".show-more p").on("click", function () {
   const $this = $(this);
   $this.siblings(".more-info").toggle(300);
   $this.text($this.text() === 'Show more' ? 'Show less' : 'Show more');
@@ -95,20 +98,30 @@ $(".show-more p").on("click", function(){
 });
 
 // cooments show
-$(".post .comment").on("click", function() {
+$(".post .comment").on("click", function () {
   $(this).siblings(".body-comment").fadeIn(300).addClass("d-flex");
 });
 
-$(".post .close").on("click", function() {
+$(".post .close").on("click", function () {
   $(this).closest(".body-comment").fadeOut(300).removeClass("d-flex");
 });
 
 // share show
 
-$(".post .share").on("click", function() {
+$(".post .share").on("click", function () {
   $(this).siblings(".body-share").fadeIn(300).addClass("d-flex");
 });
 
-$(".post .close").on("click", function() {
+$(".post .close").on("click", function () {
   $(this).closest(".body-share").fadeOut(300).removeClass("d-flex");
+});
+$(".parentComment").on("click", function () {
+  var $contentElement = $(this).nextAll(".body-comment").find(".content-comment");
+  var content = $contentElement.html();
+
+  if (content) {
+    console.log("match");
+  } else {
+    $contentElement.html('<img src="static/images/no-comment.jpg" class="position-relative top-50 start-50 translate-middle rounded no-comment" alt="Not Found"> ');
+  }
 });
