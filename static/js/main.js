@@ -122,6 +122,6 @@ $(".parentComment").on("click", function () {
   if (content) {
     console.log("match");
   } else {
-    $contentElement.html('<img src="static/images/no-comment.jpg" class="position-relative top-50 start-50 translate-middle rounded no-comment" alt="Not Found"> ');
+    $contentElement.html('<img src="static/images/no-comment.png" class="position-relative top-50 start-50 translate-middle rounded no-comment" alt="Not Found"> ');
   }
 });
