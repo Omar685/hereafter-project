@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/profile.css">
+</head>
+
+<body>
+
+  <section class="bar">
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm z-3 position-fixed top-0 w-100">
+      <div class="container-fluid">
+        <a class="navbar-brand logo" href="#"><img src="static/images/logo.png" class="w-100" alt="logo image"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div>
+            <h5 class="m-0 h6">Profile</h5>
+          </div>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+            <li class="nav-item">
+              <input class="form-control me-2 bg-body-tertiary" type="search" placeholder="Search" aria-label="Search">
+            </li>
+          </ul>
+          <div class="icon d-flex">
+            <i
+              class="bg-body-tertiary rounded-2 d-flex justify-content-center align-items-center fa-regular fa-comment-dots me-2"></i>
+            <i
+              class="bg-body-tertiary rounded-2 d-flex justify-content-center align-items-center fa-regular fa-bell"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <aside class="bg-white position-fixed z-2 shadow-sm vh-100 flex-column text-center justify-content-center">
+      <div class="container">
+        <ul class="list-unstyled m-0">
+          <li class="py-1 my-2 rounded-3 active"><a href="#"><i class="active fa-solid fa-house"></i></a></li>
+          <li class="py-1 my-2 rounded-3"><a href="#"><i class="fa-solid fa-user"></i></a></li>
+          <li class="py-1 my-2 rounded-3"><a href="#"><i class="fa-regular fa-envelope"></i></a></li>
+          <li class="py-1 my-2 rounded-3"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <main>
+    <!-- start profile -->
+    <section class="profile">
+      <div class="container">
+        <div class="info bg-white my-3 rounded-3 pb-3">
+          <div class="cover-image position-relative rounded-3">
+            <img src="static/images/one.jpg" class="rounded-3" alt="cover image">
+            <div class="profile-image position-absolute">
+              <img class="rounded-circle border border-4 border-white" src="static/images/tow.jpg" alt="Profile Image">
+            </div>
+          </div>
+          <div
+            class="show bg-black bg-opacity-50 vh-100 w-100 position-fixed start-0 top-0 justify-content-center align-items-center z-3">
+            <img src="static/images/one.jpg" class="" alt="">
+            <div class="close position-absolute m-3 end-0">
+              <i
+                class="fa-solid fa-xmark bg-body-tertiary fs-4 text-danger rounded-circle d-flex justify-content-center align-items-center"></i>
+            </div>
+          </div>
+          <div class="row my-md-2 my-5 ms-md-0 ms-2">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+              <h5 class="name-user text-capitalize mb-1">Omair Mohammed</h5>
+              <span class="text-secondary">@omair-660</span>
+              <div class="follow d-flex gap-3 mt-2 mb-3">
+                <div class="following">
+                  <span>250 following</span>
+                </div>
+                <div class="followers">
+                  <span>300 followers</span>
+                </div>
+              </div>
+              <div class="show-more position-relative">
+                <p class="fw-bold text-capitalize text-primary text-decoration-underline mb-1">Show more</p>
+                <div class="more-info position-absolute bg-dark rounded-2 text-white w-75 p-3">
+
+                  <div class="d-flex mb-2">
+                    <h5 class="text-capitalize">Name:</h5>
+                    <span class="ps-2">Omar</span>
+                  </div>
+
+                  <div class="d-flex mb-2">
+                    <h5 class="text-capitalize">Username:</h5>
+                    <span class="ps-2">@omar855</span>
+                  </div>
+
+                  <div class="d-flex mb-2">
+                    <h5 class="text-capitalize">Age:</h5>
+                    <span class="ps-2">21</span>
+                  </div>
+
+                  <div class="d-flex">
+                    <h5 class="text-capitalize">Location:</h5>
+                    <span class="ps-2">Cairo</span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-md-6 box-end mt-md-0 mt-2">
+              <div class="me-2">
+                <button class="btn">Message</button>
+                <button class="btn">Follow</button>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end profile -->
+
+    <!-- start post -->
+    <section class="post">
+      <div class="container">
+        <div class="bg-white rounded-3 py-1">
+          <nav class="nav border-bottom">
+            <a class="nav-link" href="#">Posts</a>
+            <a class="nav-link" href="#">Settings</a>
+          </nav>
+          <textarea name="" id="" cols="" rows="5" class="form-control mx-auto mt-2" placeholder="Post here"></textarea>
+          <div class="post-control d-flex gap-3 mt-3">
+            <i
+              class="d-flex justify-content-center ms-2 align-items-center bg-body-tertiary rounded-2 fa-solid fa-link"></i>
+            <i
+              class="d-flex justify-content-center align-items-center bg-body-tertiary rounded-2 fa-solid fa-camera"></i>
+            <button class="btn">Post</button>
+          </div>
+          <div class="box m-2 p-2 border rounded-2">
+            <div class="heading d-flex align-items-center mt-3">
+              <div class="image mb-4 me-2">
+                <img src="static/images/tow.jpg" class="rounded-circle" alt="Profile Image">
+              </div>
+              <div>
+                <h6>Omair Mohammed</h6>
+                <p>22 Jun</p>
+              </div>
+            </div>
+            <div class="title-post mt-2">
+              <h5 class="h3">Hello World</h5>
+            </div>
+            <div class="description-post">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore saepe repellat nam? Exercitationem ut
+              sit molestiae laudantium maxime vitae iste dolorem tenetur quaerat porro, quasi, dicta eveniet repellat
+              dolore nulla?
+            </div>
+            <div class="reaction d-flex gap-3 justify-content-between mt-3 py-2">
+              <div class="d-flex align-items-center gap-1 heart">
+                <i class="fa-solid fa-heart"></i>
+                <span>Love</span>
+              </div>
+              <div class="d-flex align-items-center gap-1 comment parentComment">
+                <i class="fa-regular fa-comment-dots"></i>
+                <span>Comment</span>
+              </div>
+                <!-- coment -->
+                <div
+                  class="body-comment overflow-auto position-fixed top-0 start-0 justify-content-center align-items-center bg-black bg-opacity-25 w-100 vh-100">
+                  <div class="bg-body-secondary rounded-2 p-3 position-relative auto">
+                    <div class="position-absolute top-0 end-0 m-2 close">
+                      <i
+                        class="fa-solid fa-xmark bg-body-tertiary fs-4 text-danger rounded-circle d-flex justify-content-center align-items-center"></i>
+                    </div>
+                    
+                    <h4 class="h2 mb-3">Comments</h4>
+                    <div class="content-comment "></div>
+                    <div class="footer-comment">
+                      <form action="">
+                        <div class="d-flex gap-3">
+                          <input type="text" class="form-control" placeholder="Add a comment">
+                          <button type="submit" class="btn btn-primary">Comment</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <!-- coment -->
+              
+                <div class="d-flex align-items-center gap-1 share">
+                  <i class="fa-solid fa-share"></i>
+                  <span>Share</span>
+                </div>
+                <!-- share -->
+                <div
+                  class="body-share position-fixed top-0 start-0 justify-content-center align-items-center bg-black bg-opacity-25 w-100 vh-100">
+                  <div class="bg-body-secondary rounded-2 p-3 position-relative">
+                    <div class="position-absolute top-0 end-0 m-2 close">
+                      <i
+                        class="fa-solid fa-xmark bg-body-tertiary fs-4 text-danger rounded-circle d-flex justify-content-center align-items-center"></i>
+                    </div>
+                    <h4 class="h2 mb-3">share</h4>
+                    <div class="">
+                      <div class="input-container position-relative">
+                        <input type="text" class="form-control" readonly placeholder="Add a comment">
+                        <button class="btn btn-primary position-absolute end-0 text-capitalize" type="button">Copy</button>
+                      </div>
+                      
+                    </div>
+                
+                  </div>
+                </div>
+                <!-- share -->
+            </div>
+          </div>
+          <!-- post by image -->
+          <div class="box m-2 p-2 border rounded-2">
+            <div class="heading d-flex align-items-center mt-3">
+              <div class="image mb-4 me-2">
+                <img src="static/images/tow.jpg" class="rounded-circle" alt="Profile Image">
+              </div>
+              <div>
+                <h6>Omair Mohammed</h6>
+                <p>22 Jun</p>
+              </div>
+            </div>
+            <div class="image-post">
+              <img src="static/images/tow.jpg" class="w-100 rounded-3" alt="Image Post">
+            </div>
+            <div class="title-post mt-2">
+              <h5 class="h3">Hello World</h5>
+            </div>
+            <div class="description-post">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore saepe repellat nam? Exercitationem ut
+              sit molestiae laudantium maxime vitae iste dolorem tenetur quaerat porro, quasi, dicta eveniet repellat
+              dolore nulla?
+            </div>
+            <div class="reaction d-flex gap-3 justify-content-between mt-3 py-2">
+              <div class="d-flex align-items-center gap-1 heart">
+                <i class="fa-solid fa-heart"></i>
+                <span>Love</span>
+              </div>
+              <div class="d-flex align-items-center gap-1 comment parentComment">
+                <i class="fa-regular fa-comment-dots"></i>
+                <span>Comment</span>
+              </div>
+              <!-- coment -->
+              <div
+                class="body-comment position-fixed top-0 start-0 justify-content-center align-items-center bg-black bg-opacity-25 w-100 vh-100">
+                <div class="bg-body-secondary rounded-2 p-3 position-relative">
+                  <div class="position-absolute top-0 end-0 m-2 close">
+                    <i
+                      class="fa-solid fa-xmark bg-body-tertiary fs-4 text-danger rounded-circle d-flex justify-content-center align-items-center"></i>
+                  </div>
+                  <h4 class="h2 mb-3">Comments</h4>
+                  <div class="content-comment">
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                  </div>
+                  <div class="footer-comment">
+                    <form action="">
+                      <div class="">
+                        <input type="text" class="form-control" placeholder="Add a comment">
+                        <div class="my-3">
+                          <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Comment</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- coment -->
+
+              <div class="d-flex align-items-center gap-1 share">
+                <i class="fa-solid fa-share"></i>
+                <span>Share</span>
+              </div>
+              <!-- share -->
+              <div
+                class="body-share position-fixed top-0 start-0 justify-content-center align-items-center bg-black bg-opacity-25 w-100 vh-100">
+                <div class="bg-body-secondary rounded-2 p-3 position-relative">
+                  <div class="position-absolute top-0 end-0 m-2 close">
+                    <i
+                      class="fa-solid fa-xmark bg-body-tertiary fs-4 text-danger rounded-circle d-flex justify-content-center align-items-center"></i>
+                  </div>
+                  <h4 class="h2 mb-3">share</h4>
+                  <div class="">
+                    <div class="input-container position-relative">
+                      <input type="text" class="form-control" readonly placeholder="Add a comment">
+                      <button class="btn btn-primary position-absolute end-0 text-capitalize" type="button">Copy</button>
+                    </div>
+                    
+                  </div>
+              
+                </div>
+              </div>
+              <!-- share -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <!-- end post -->
+
+    <div class="top position-fixed rounded-circle" title="Back To Top">
+      <div class="d-flex justify-content-center align-items-center"><i class="fa-solid fa-angle-up"></i></div>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+  <script src="static/js/main.js"></script>
+</body>
+
+</html>
+
