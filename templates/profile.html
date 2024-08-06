@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="static/css/bootstrap.min.css">
-  <link rel="stylesheet" href="static/css/profile.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
   <section class="bar">
     <nav class="navbar navbar-expand-lg bg-white shadow-sm z-3 position-fixed top-0 w-100">
       <div class="container-fluid">
-        <a class="navbar-brand logo" href="#"><img src="static/images/logo.png" class="w-100" alt="logo image"></a>
+        <a class="navbar-brand logo" href="/"><img src="{{ url_for('static', filename='images/logo.png') }}" class="w-100" alt="logo image"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -59,30 +59,22 @@
       <div class="container">
         <div class="info bg-white my-3 rounded-3 pb-3">
           <div class="cover-image position-relative rounded-3">
-            <img src="static/images/one.jpg" class="rounded-3" alt="cover image">
+            <img src="{{ cover }}" class="rounded-3" alt="cover image">
             <div class="profile-image position-absolute">
-              <img class="rounded-circle border border-4 border-white" src="static/images/tow.jpg" alt="Profile Image">
-            </div>
-          </div>
-          <div
-            class="show bg-black bg-opacity-50 vh-100 w-100 position-fixed start-0 top-0 justify-content-center align-items-center z-3">
-            <img src="static/images/one.jpg" class="" alt="">
-            <div class="close position-absolute m-3 end-0">
-              <i
-                class="fa-solid fa-xmark bg-body-tertiary fs-4 text-danger rounded-circle d-flex justify-content-center align-items-center"></i>
+              <img class="rounded-circle border border-4 border-white" src="{{ logo }}" alt="Profile Image">
             </div>
           </div>
           <div class="row my-md-2 my-5 ms-md-0 ms-2">
             <div class="col-md-2"></div>
             <div class="col-md-10">
-              <h5 class="name-user text-capitalize mb-1">Omair Mohammed</h5>
-              <span class="text-secondary">@omair-660</span>
+              <h5 class="name-user text-capitalize mb-1">{{ name }}</h5>
+              <span class="text-secondary">@{{ username }}</span>
               <div class="follow d-flex gap-3 mt-2 mb-3">
                 <div class="following">
-                  <span>250 following</span>
+                  <span>{{ following }} following</span>
                 </div>
                 <div class="followers">
-                  <span>300 followers</span>
+                  <span>{{ followers }} followers</span>
                 </div>
               </div>
               <div class="show-more position-relative">
@@ -91,22 +83,22 @@
 
                   <div class="d-flex mb-2">
                     <h5 class="text-capitalize">Name:</h5>
-                    <span class="ps-2">Omar</span>
+                    <span class="ps-2">{{ name }}</span>
                   </div>
 
                   <div class="d-flex mb-2">
                     <h5 class="text-capitalize">Username:</h5>
-                    <span class="ps-2">@omar855</span>
+                    <span class="ps-2">@{{ username }}</span>
                   </div>
 
                   <div class="d-flex mb-2">
                     <h5 class="text-capitalize">Age:</h5>
-                    <span class="ps-2">21</span>
+                    <span class="ps-2">{{ age }}</span>
                   </div>
 
                   <div class="d-flex">
                     <h5 class="text-capitalize">Location:</h5>
-                    <span class="ps-2">Cairo</span>
+                    <span class="ps-2">{{ location }}</span>
                   </div>
 
                 </div>
@@ -132,40 +124,38 @@
             <a class="nav-link" href="#">Posts</a>
             <a class="nav-link" href="#">Settings</a>
           </nav>
-          <textarea name="" id="" cols="" rows="5" class="form-control mx-auto mt-2" placeholder="Post here"></textarea>
+          <textarea name="post-data" id="post-data" cols="" rows="5" class="form-control mx-auto mt-2" placeholder="Post here"></textarea>
           <div class="post-control d-flex gap-3 mt-3">
             <i
               class="d-flex justify-content-center ms-2 align-items-center bg-body-tertiary rounded-2 fa-solid fa-link"></i>
-            <i
-              class="d-flex justify-content-center align-items-center bg-body-tertiary rounded-2 fa-solid fa-camera"></i>
-            <button class="btn">Post</button>
+            <button class="btn" disabled id="post-btn">Post</button>
           </div>
+          
+          
+
+
+          {% for item in posts %}
           <div class="box m-2 p-2 border rounded-2">
             <div class="heading d-flex align-items-center mt-3">
               <div class="image mb-4 me-2">
-                <img src="static/images/tow.jpg" class="rounded-circle" alt="Profile Image">
+                <img src="{{ logo }}" class="rounded-circle" alt="Profile Image">
               </div>
               <div>
-                <h6>Omair Mohammed</h6>
-                <p>22 Jun</p>
+                <h6>{{ name }}</h6>
+                <p style="display: block;" class="idp">{{ item[0] }}</p>
+                <p>{{ item[4] }}</p>
               </div>
             </div>
-            <div class="title-post mt-2">
-              <h5 class="h3">Hello World</h5>
-            </div>
-            <div class="description-post">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore saepe repellat nam? Exercitationem ut
-              sit molestiae laudantium maxime vitae iste dolorem tenetur quaerat porro, quasi, dicta eveniet repellat
-              dolore nulla?
-            </div>
+            
+            <div class="description-post"> {{ item[2] }} </div>
             <div class="reaction d-flex gap-3 justify-content-between mt-3 py-2">
               <div class="d-flex align-items-center gap-1 heart">
                 <i class="fa-solid fa-heart"></i>
-                <span>Love</span>
+                <span>0</span>
               </div>
               <div class="d-flex align-items-center gap-1 comment parentComment">
                 <i class="fa-regular fa-comment-dots"></i>
-                <span>Comment</span>
+                <span>0</span>
               </div>
                 <!-- coment -->
                 <div
@@ -177,12 +167,14 @@
                     </div>
                     
                     <h4 class="h2 mb-3">Comments</h4>
-                    <div class="content-comment "></div>
+                    <div class="content-comment">
+                      <p>- Lorem ipsum dolor sit amet consectetur.</p>
+                    </div>
                     <div class="footer-comment">
                       <form action="">
                         <div class="d-flex gap-3">
-                          <input type="text" class="form-control" placeholder="Add a comment">
-                          <button type="submit" class="btn btn-primary">Comment</button>
+                          <input type="text" class="form-control commentContent" id="commentContent" placeholder="Add a comment" >
+                          <button type="submit" class="btn btn-primary sendComment" id="sendComment" disabled>Send</button>
                         </div>
                       </form>
                     </div>
@@ -216,22 +208,31 @@
                 <!-- share -->
             </div>
           </div>
+          {% endfor %}
+
+
+
+
+
+
+
+
           <!-- post by image -->
           <div class="box m-2 p-2 border rounded-2">
             <div class="heading d-flex align-items-center mt-3">
               <div class="image mb-4 me-2">
-                <img src="static/images/tow.jpg" class="rounded-circle" alt="Profile Image">
+                <img src="{{ url_for('static', filename='images/tow.jpg') }}" class="rounded-circle" alt="Profile Image">
               </div>
               <div>
-                <h6>Omair Mohammed</h6>
+                <h6>{{ name }}</h6>
                 <p>22 Jun</p>
               </div>
             </div>
             <div class="image-post">
-              <img src="static/images/tow.jpg" class="w-100 rounded-3" alt="Image Post">
+              <img src="{{ url_for('static', filename='/images/tow.jpg') }}" class="w-100 rounded-3" alt="Image Post">
             </div>
             <div class="title-post mt-2">
-              <h5 class="h3">Hello World</h5>
+              
             </div>
             <div class="description-post">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore saepe repellat nam? Exercitationem ut
@@ -241,11 +242,11 @@
             <div class="reaction d-flex gap-3 justify-content-between mt-3 py-2">
               <div class="d-flex align-items-center gap-1 heart">
                 <i class="fa-solid fa-heart"></i>
-                <span>Love</span>
+                <span>0</span>
               </div>
               <div class="d-flex align-items-center gap-1 comment parentComment">
                 <i class="fa-regular fa-comment-dots"></i>
-                <span>Comment</span>
+                <span>0</span>
               </div>
               <!-- coment -->
               <div
@@ -302,7 +303,7 @@
                   <div class="footer-comment">
                     <form action="">
                       <div class="">
-                        <input type="text" class="form-control" placeholder="Add a comment">
+                        <input type="text" class="form-control" id="input-comment" placeholder="Add a comment">
                         <div class="my-3">
                           <input class="form-control" type="file" id="formFile">
                         </div>
@@ -355,8 +356,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="static/js/bootstrap.min.js"></script>
-  <script src="static/js/main.js"></script>
+  <script src="/post.js"></script>
+  <script src="/comment.js"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 
 </html>
